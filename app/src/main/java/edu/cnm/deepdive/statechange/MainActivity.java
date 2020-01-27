@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.util.Log;
-import android.widget.EditText;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -84,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+    final EditText editText = findViewById(R.id.editText);
+    CharSequence userText = savedInstanceState.getCharSequence("savedText");
+    editText.setText(userText);
     super.onRestoreInstanceState(savedInstanceState);
     Log.i(TAG, "onRestoreInstanceState");
   }

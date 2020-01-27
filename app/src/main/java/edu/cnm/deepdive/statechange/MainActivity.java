@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.statechange;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import androidx.annotation.NonNull;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.util.Log;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,9 +73,13 @@ public class MainActivity extends AppCompatActivity {
   }
 
   @Override
-  protected void onSaveInstanceState(@NonNull Bundle outState) {
+  protected void onSaveInstanceState(@NonNull Bundle outState)  {
+    final EditText editText = findViewById(R.id.editText);
+    CharSequence userText = editText.getText();
+    outState.putCharSequence("savedText", userText);
     super.onSaveInstanceState(outState);
-    Log.i(TAG, "onSaveInstanceState(");
+    Log.i(TAG, "onSaveInstanceState ");
+
   }
 
   @Override
